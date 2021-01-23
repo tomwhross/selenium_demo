@@ -1,0 +1,16 @@
+name: Testing
+on: [push, pull_request]
+
+jobs:
+  test_project:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies and requirements
+      run: |
+        pip3 install --user selenium
+    - name: Prepare selenium
+      uses: nanasess/setup-chromedriver@master
+    - name: Run tests
+      run: python tests.py
+

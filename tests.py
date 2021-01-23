@@ -3,6 +3,7 @@ import pathlib
 import unittest
 
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
 def file_uri(filename):
@@ -14,7 +15,9 @@ def file_uri(filename):
 
 class WebpageTests(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        self.driver = webdriver.Chrome(options=chrome_options)
 
     def test_title(self):
         self.driver.get(file_uri("counter.html"))
