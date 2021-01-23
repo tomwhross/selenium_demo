@@ -15,7 +15,7 @@ jobs:
         python -m pip install --upgrade pip
         pip3 install --user selenium
     - name: Prepare selenium
-      uses: nanasess/setup-chromedriver@master
+      uses: tomwhross/setup-chromedriver@master
     - name: Run tests
       run: python tests.py
 
